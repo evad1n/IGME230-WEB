@@ -23,6 +23,7 @@
     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Progress_bar_60.svg/2000px-Progress_bar_60.svg.png" alt="A basic red/green progress bar">
     
   **The style of the questions and multiple choice answers:**
+  <br>
     <img src="https://i.ytimg.com/vi/NHmpLT7RNHE/hqdefault.jpg" alt="A multiple choice question on a trivia show">
 
 ## VIII. Other
