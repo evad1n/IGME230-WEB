@@ -6,22 +6,23 @@
 ## III. Platform
   This will be a web-based game and all you need is a mouse.
 ## IV. Story
-  You enter a game of DotA 2 through Valve's rigorous and balanced matchmaking algorithm. As you load in you examine your environemt. A toxic player here, a feeder there ... it doesn't look promising. However, you have trained for years through the positive mental attitude regimen and you understand what you must do to win. Only through high morale and your vast knowledge of meme meta can you lead your team to victory.
+  You enter a game of DotA 2 through Valve's rigorous and balanced matchmaking algorithm. As you load in you examine your environemt. A toxic player here, a feeder there ... it doesn't look promising. However, you have trained for years through the positive mental attitude regimen and you understand what you must do to win. Only through high morale and your vast knowledge of the meme meta can you lead your team to victory.
 ## V. Aesthetics
-  This game will have a grey background and options and keywords will be color-coded to align with certain themes. For example a negative response would be in red, while a more comedic response would be in yellow. This game will not focus much on aesthetics but more on the experience.
+  This game will have a grey background and options and keywords will be color-coded to align with certain themes. For example a negative response would be in red, while a more comedic response would be in yellow. There will also be a morale bar that is greed/red.
+  I only want a very simple style that gets the experience across.
 ## VI. Gameplay
   ### Controls
   This game will be only using the mouse to click on things, but there is a slight possibility of having keyboard shortcuts for the options.
   ### Mechanics
   Players will be given specific scenarios that occur in a match of DotA 2. They will have to pick from 4 options to respond to the scenario in order to boost the morale of their team. The effectiveness of their response will be shown through a morale bar at the top of the screen. If this bar should turn all red then they will lose the game. If it fills with all green then they win. The scenarios will be randomized, but the responses to each scenario will follow a certain formula specific to the scenario. Each response will have a theme (comedic, uplifting, negative) and a scenario will have to have 4 responses that fit the given theme for that scenario. Basically the scenarios may be the same, but the responses will be slightly different each time.
 ## VII. Screenshots
-  ### Some of the in-game responses that DotA 2 has:
-  <img src="https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwjJn_i2ybDWAhUG5yYKHYAsAtAQjRwIBw&url=https%3A%2F%2Fsteamcommunity.com%2Fsharedfiles%2Ffiledetails%2F%3Fid%3D161556569&psig=AFQjCNEvLM3eFwUJzz6ZrBHyOmfimXPJlw&ust=1505887279449220" alt="The basic DotA 2 chathweel">
+  **Some of the in-game responses that DotA 2 has:**
+  <img src="http://i.imgur.com/WwPeEv1.png" alt="The basic DotA 2 chathweel">
   
-  ### Basic concept of the morale bar:
+  **Basic concept of the morale bar:**
     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Progress_bar_60.svg/2000px-Progress_bar_60.svg.png" alt="A basic red/green progress bar">
     
-  ### The style of the questions and multiple choice answers:
+  **The style of the questions and multiple choice answers:**
     <img src="https://i.ytimg.com/vi/NHmpLT7RNHE/hqdefault.jpg" alt="A multiple choice question on a trivia show">
 
 ## VIII. Other
