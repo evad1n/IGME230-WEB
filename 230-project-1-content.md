@@ -16,28 +16,15 @@
   Players will be given specific scenarios that occur in a match of DotA 2. They will have to pick from 4 options to respond to the scenario in order to boost the morale of their team. The effectiveness of their response will be shown through a morale bar at the top of the screen. If this bar should turn all red then they will lose the game. If it fills with all green then they win. The scenarios will be randomized, but the responses to each scenario will follow a certain formula specific to the scenario. Each response will have a theme (comedic, uplifting, negative) and a scenario will have to have 4 responses that fit the given theme for that scenario. Basically the scenarios may be the same, but the responses will be slightly different each time.
 ## VII. Screenshots
   ### Some of the in-game responses that DotA 2 has:
-    [Some of the in-game DotA 2 chathweel responses](http://apollo-eu-uploads.s3.amazonaws.com/1423494171463/Dota2_UI_Chatwheel.jpg "The basic DotA 2 chathweel responses")
+  <img src="http://apollo-eu-uploads.s3.amazonaws.com/1423494171463/Dota2_UI_Chatwheel.jpg" alt="The basic DotA 2 chathweel">abc</img>
   ### Basic concept of the morale bar:
-    [Basic concept of the morale bar](https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Progress_bar_60.svg/2000px-Progress_bar_60.svg.png "A red/green progress bar")
+  ...
+    ![Basic concept of the morale bar](https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Progress_bar_60.svg/2000px-Progress_bar_60.svg.png)
   ### The style of the questions and multiple choice answers:
-  [The style of the questions and multiple choice answers](https://i.ytimg.com/vi/NHmpLT7RNHE/hqdefault.jpg "Multiple choice question  from a trivia show")
+  ...
+    ![The style of the questions and multiple choice answers](https://i.ytimg.com/vi/NHmpLT7RNHE/hqdefault.jpg)
 
 ## VIII. Other
-  ### Minimum Viable Product
-  At bare minimum, this game can technically be shipped if it contains:
-  * Player Character
-    * Can move in 8 directions
-    * Can shoot projectiles
-    * Can be destroyed upon collision with an enemy
-  * Enemy Character
-    * Moves with a simple pattern
-    * Destroyed via collision with a player bullet
-    * Destroys both itself and player upon impact with player
-  * Score
-    * Score is consistently updated and displayed for the player
-    * Score increases with every enemy destroyed
-  * Timer
-    * Timer is consistently updated and displayed for the player
-    * Timer terminates the game when time is up
+
 ## IX. About the Developer
 My name is Will Dickinson and I am a second year Game Design and Development student at RIT. I enjoy playing video games and 3D modeling. I also am interested in enemy AI in games and AI in general. My favorite games are DotA 2 and Terraria.
