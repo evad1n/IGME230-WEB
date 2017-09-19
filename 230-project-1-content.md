@@ -1,6 +1,6 @@
 # DotA Matchmaking Simulator 2017
 ## I. High Concept
-  A minigame about the emotional meta in the popular MOBA DotA 2. The game will consist of scenarios in which your team faces an emotional crisis in which you must determine the correct in-game response to boost your team's morale.
+  A minigame about the emotional meta in the popular MOBA DotA 2. The game will consist of scenarios in which your team faces an emotional crisis in which you must determine the correct in-game response to boost your team's morale. If you continually make the right choices your team will win the game. However, if you fail then your teammates will become disheartened and you will lose.
 ## II. Genre
   This game works similar to a trivia game in that it is text-based and you are given multiple options to choose from to respond to the question.
 ## III. Platform
