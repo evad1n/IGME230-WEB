@@ -29,7 +29,31 @@ span.cellSelected{
 #colorChooser{
     position: absolute;
     top: 65px;
-    left:800px;
+    right:150px;
+}
+
+#pause{
+    position: absolute;
+    right: 50px;
+    top: 65px;
+}
+
+#step{
+    position: absolute;
+    right: 50px;
+    top: 100px;
+}
+
+#restart{
+    position: absolute;
+    right: 50px;
+    top: 135px;
+}
+
+#clear{
+    position: absolute;
+    right: 50px;
+    top: 170px;
 }
 
 h1{

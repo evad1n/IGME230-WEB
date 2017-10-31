@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
-	<title>Pixel Arteur</title>
+	<title>Game of Life</title>
 	<link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="life.css">
     <script src="lifeworld.js"></script>
@@ -29,14 +29,22 @@
 	<option value="WhiteSmoke">WhiteSmoke </option>
 	<option value="yellow">Yellow</option>
 </select>
+<button id="pause">Pause</button>
+<button id="step">Step</button>
+<button id="restart">Restart</button>
+<button id="clear">Clear</button>
 
 <script>
-    const numCols = 70;
-    const numRows = 40;
+    const numCols = 120;
+    const numRows = 70;
     const cellWidth = 10;
     const cellSpacing = 1;
     
     const container = document.querySelector("#gridContainer");
+    const pauseButton = document.querySelector("#pause");
+    const stepButton = document.querySelector("#step");
+    const restartButton = document.querySelector("#restart");
+    const clearButton = document.querySelector("#clear");
     
     const span = document.createElement('span');
     span.className = 'cell';
@@ -54,56 +62,96 @@
         }
     }
     
-//    let color = "red";
-//    
-//    container.onclick = fillCell;
-//    
-//    function fillCell(e){
-//        let rect = container.getBoundingClientRect();
-//        let mouseX = e.clientX - rect.left;
-//        let mouseY = e.clientY - rect.top;
-//        let columnWidth = cellWidth + cellSpacing;
-//        let col = Math.floor(mouseX/columnWidth);
-//        let row = Math.floor(mouseY/columnWidth);
-//        let selectedCell = cells[row][col];
-//        selectedCell.className = 'cellSelected';
-//        selectedCell.style.backgroundColor = color;
-//        console.log(`${col},${row}`);
-//    }
-//    
-//    let mouseIsDown = false;
-//    
-//    container.onmousemove = (e) => {
-//        e.preventDefault();
-//        if(mouseIsDown) fillCell(e);
-//    };
-//    
-//    container.onmousedown = (e) => {
-//        e.preventDefault();
-//        mouseIsDown = true;
-//    };
-//    
-//    window.onmouseup = (e) => {
-//        e.preventDefault();
-//        mouseIsDown = false;
-//    };
-//    
-//    document.querySelector("#colorChooser").onchange = (e) => {
-//        color = e.target.value;
-//    };
+    let color = "red";
+    
+    container.onclick = fillCell;
+    
+    function fillCell(e){
+        let rect = container.getBoundingClientRect();
+        let mouseX = e.clientX - rect.left;
+        let mouseY = e.clientY - rect.top;
+        let columnWidth = cellWidth + cellSpacing;
+        let col = Math.floor(mouseX/columnWidth);
+        let row = Math.floor(mouseY/columnWidth);
+        let selectedCell = cells[row][col];
+        if(lifeworld.world[row][col] == 1){
+            lifeworld.world[row][col] = 0;
+            selectedCell.style.backgroundColor = "white";
+        }
+        else{
+            lifeworld.world[row][col] = 1;
+            selectedCell.style.backgroundColor = color;
+        }
+    }
+    
+    pauseButton.onclick = pause;
+    
+    let paused = true;
+    
+    function pause(e){
+        paused = !paused;
+        if(!paused)
+            loop(performance.now());
+    }
+    
+    stepButton.onclick = lifeStep;
+    
+    function lifeStep(e){
+        lifeworld.step();
+        updateGrid();
+    }
+    
+    restartButton.onclick = restart;
+    
+    function restart(e){
+        lifeworld.randomSetup();
+        updateGrid();
+    }
+    
+    clearButton.onclick = clear;
+    
+    function clear(e){
+        for(let row = 0; row < numRows; row++){
+            for(let col = 0; col < numCols; col++){
+                lifeworld.world[row][col] = 0;
+                lifeworld.worldBuffer[row][col] = 0;
+            }
+        }
+    }
+    
+    let mouseIsDown = false;
+    
+    container.onmousemove = (e) => {
+        e.preventDefault();
+        if(mouseIsDown) fillCell(e);
+    };
+    
+    container.onmousedown = (e) => {
+        e.preventDefault();
+        mouseIsDown = true;
+    };
+    
+    window.onmouseup = (e) => {
+        e.preventDefault();
+        mouseIsDown = false;
+    };
+    
+    document.querySelector("#colorChooser").onchange = (e) => {
+        color = e.target.value;
+    };
+
     
     let lastUpdate = performance.now();
-    
+
     let lastFrame = performance.now();
 
     let maxFrameDelay = 1000/12;
-    
+
     lifeworld.init(numCols,numRows);
     
-    loop(performance.now());
-    
     function loop(timestamp){
-        requestAnimationFrame(loop);
+        if(!paused)
+            requestAnimationFrame(loop);
         lastUpdate = timestamp;
         if(timestamp - lastFrame > maxFrameDelay){
             lastFrame = timestamp;
@@ -111,19 +159,20 @@
             updateGrid();
         }
     }
-    
+
     function updateGrid(){
         for(let row = 0; row < numRows; row++){
             for(let col = 0; col < numCols; col++){
                 let element = cells[row][col];
                 if(lifeworld.world[row][col] == 1){
-                    element.style.backgroundColor="red";
+                    element.style.backgroundColor=color;
                 }else{
                     element.style.backgroundColor="white";
                 }
             }
         }
     }
+
   
     
 </script>
