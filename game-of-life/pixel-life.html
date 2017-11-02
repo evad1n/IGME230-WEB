@@ -6,6 +6,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="life.css">
     <script src="lifeworld.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
 <div id="gridContainer"></div>
@@ -35,8 +36,8 @@
 <button id="clear">Clear</button>
 
 <script>
-    const numCols = 120;
-    const numRows = 70;
+    let numCols = parseInt(window.innerWidth / 11) - 2;
+    let numRows = parseInt(window.innerHeight / 11) - 20;
     const cellWidth = 10;
     const cellSpacing = 1;
     
@@ -49,7 +50,7 @@
     const span = document.createElement('span');
     span.className = 'cell';
     
-    const cells = [];
+    let cells = [];
     
     for(let row = 0; row < numRows; row++){
         cells.push([]);
@@ -62,9 +63,68 @@
         }
     }
     
-    let color = "red";
+    let color = "black";
     
     container.onclick = fillCell;
+    //border div size
+    container.style.width = numCols * (cellWidth + cellSpacing) + "px";
+    container.style.height = numRows * (cellWidth + cellSpacing) + "px";
+    
+    //resize board
+    
+    let rtime;
+    let timeout = false;
+    let delta = 200;
+    window.onresize = (function(e) {
+        pause();
+        rtime = new Date();
+        if (timeout === false) {
+            timeout = true;
+            setTimeout(resizeend, delta);
+        }
+    });
+
+    function resizeend() {
+        if (new Date() - rtime < delta) {
+            setTimeout(resizeend, delta);
+        } else {
+            timeout = false;
+            resize();
+        }               
+    }
+    
+    function resize() {
+        for(let row = 0; row < numRows; row++){
+            for(let col = 0; col < numCols; col++){
+                container.removeChild(cells[row][col]);
+            }
+        }
+        
+        cells = [];
+        
+        numCols = parseInt(window.innerWidth / 11) - 2;
+        numRows = parseInt(window.innerHeight / 11) - 20;
+        container.style.width = numCols * (cellWidth + cellSpacing) + "px";
+        container.style.height = numRows * (cellWidth + cellSpacing) + "px";
+        
+                
+        for(let row = 0; row < numRows; row++){
+            cells.push([]);
+            for(let col = 0; col < numCols; col++){
+                let cell = span.cloneNode();
+                cell.style.left = `${col * (cellWidth+cellSpacing)}px`;
+                cell.style.top = `${row * (cellWidth+cellSpacing)}px`;
+                container.appendChild(cell);
+                cells[row][col] = cell;
+            }
+        }
+        
+        lifeworld.init(numCols,numRows);
+        loop(performance.now());
+        
+        debugger;
+        
+    }
     
     function fillCell(e){
         let rect = container.getBoundingClientRect();
@@ -86,12 +146,16 @@
     
     pauseButton.onclick = pause;
     
-    let paused = true;
+    let paused = false;
     
     function pause(e){
         paused = !paused;
-        if(!paused)
-            loop(performance.now());
+        if(!paused){
+            loop(performance.now()); 
+            pauseButton.innerHTML = "Pause";
+        }
+        else
+            pauseButton.innerHTML = "Resume";
     }
     
     stepButton.onclick = lifeStep;
@@ -117,6 +181,7 @@
                 lifeworld.worldBuffer[row][col] = 0;
             }
         }
+        updateGrid();
     }
     
     let mouseIsDown = false;
@@ -148,6 +213,8 @@
     let maxFrameDelay = 1000/12;
 
     lifeworld.init(numCols,numRows);
+    
+    loop(performance.now());
     
     function loop(timestamp){
         if(!paused)

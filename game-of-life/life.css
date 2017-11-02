@@ -1,7 +1,7 @@
 span.cell{
     height:8px;
     width:8px;
-    border:1px solid purple; /* actual width & height is 25px because of border */
+/*    border:1px solid purple;*/
     background-color: #ccc;
     padding:0;
     margin:0;
@@ -10,8 +10,8 @@ span.cell{
 
 /* Get rid of the cell border when it is selected */
 span.cellSelected{
-    height:10px;
-    width:10px;
+    height:11px;
+    width:11px;
     background-color: red;
     padding:0;
     margin:0;
@@ -19,48 +19,64 @@ span.cellSelected{
 }
 
 #gridContainer{
-    top:5px;
-    left:5px;
+    top:100px;
+    left:10px;
     padding:0;
     display:inline-block;
     position:absolute;
+    border: 5px solid black;
 }
 
 #colorChooser{
     position: absolute;
-    top: 65px;
-    right:150px;
+    left:85%;
+    bottom: 20px;
+    background-color: black;
+    color: white;
+    border-radius: 25px;
+    width: 100px;
+    height: 2em;
 }
 
 #pause{
     position: absolute;
-    right: 50px;
-    top: 65px;
+    left: 65%;
+    bottom: 20px;
 }
 
 #step{
     position: absolute;
-    right: 50px;
-    top: 100px;
-}
-
-#restart{
-    position: absolute;
-    right: 50px;
-    top: 135px;
+    left: 45%;
+    bottom: 20px;
 }
 
 #clear{
     position: absolute;
-    right: 50px;
-    top: 170px;
+    left: 25%;
+    bottom: 20px;
+}
+
+#restart{
+    position: absolute;
+    left: 5%;
+    bottom: 20px;
+}
+
+button{
+    background-color: black;
+    color: white;
+    border-radius: 25px;
+    width: 100px;
+    height: 2em;
 }
 
 h1{
+    margin: auto;
+    width: 100%;
+    height: 20%;
+    text-align: center;
     font-family: 'Press Start 2P', cursive;
-    display: inline-block;
     position:absolute;
-    font-size:1.3em;
-    top: 0;
-    left:800px;
+    font-size:5em;
+    color: black;
 }
