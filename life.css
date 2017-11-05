@@ -1,0 +1,93 @@
+span.cell{
+    height:8px;
+    width:8px;
+/*    border:1px solid purple;*/
+    background-color: #ccc;
+    padding:0;
+    margin:0;
+    position:absolute;
+}
+
+/* Get rid of the cell border when it is selected */
+span.cellSelected{
+    height:11px;
+    width:11px;
+    background-color: red;
+    padding:0;
+    margin:0;
+    position:absolute;
+}
+
+#gridContainer{
+    top:100px;
+    left:10px;
+    padding:0;
+    display:inline-block;
+    position:absolute;
+    border: 5px solid black;
+}
+
+#colorChooser{
+    position: absolute;
+    left:85%;
+    bottom: 20px;
+    background-color: black;
+    color: white;
+    border-radius: 25px;
+    width: 100px;
+    height: 2em;
+}
+
+#patternChooser{
+    position: absolute;
+    left:70%;
+    bottom: 20px;
+    background-color: black;
+    color: white;
+    border-radius: 25px;
+    width: 100px;
+    height: 2em;
+}
+
+#pause{
+    position: absolute;
+    left: 55%;
+    bottom: 20px;
+}
+
+#step{
+    position: absolute;
+    left: 40%;
+    bottom: 20px;
+}
+
+#clear{
+    position: absolute;
+    left: 25%;
+    bottom: 20px;
+}
+
+#restart{
+    position: absolute;
+    left: 10%;
+    bottom: 20px;
+}
+
+button{
+    background-color: black;
+    color: white;
+    border-radius: 25px;
+    width: 100px;
+    height: 2em;
+}
+
+h1{
+    margin: auto;
+    width: 100%;
+    height: 20%;
+    text-align: center;
+    font-family: 'Press Start 2P', cursive;
+    position:absolute;
+    font-size:5em;
+    color: black;
+}
