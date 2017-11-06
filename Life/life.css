@@ -34,7 +34,7 @@ span.cellSelected{
 #colorSlider{
     position: absolute;
     left: 85%;
-    bottom: 0px;
+    bottom: 15px;
     height: 70px;
 }
 
@@ -52,7 +52,7 @@ span.cellSelected{
 #colorChooser{
     position: absolute;
     left:75%;
-    bottom: 20px;
+    bottom: 40px;
 }
 
 #fpsValue{
@@ -69,39 +69,39 @@ span.cellSelected{
 #fpsSlider{
     position: absolute;
     left: 60%;
-    bottom: 0px;
+    bottom: 15px;
     height: 70px;
 }
 
 #patternChooser{
     position: absolute;
     left:45%;
-    bottom: 20px;
+    bottom: 40px;
     width: 150px;
 }
 
 #stop{
     position: absolute;
     left: 35%;
-    bottom: 20px;
+    bottom: 40px;
 }
 
 #step{
     position: absolute;
     left: 25%;
-    bottom: 20px;
+    bottom: 40px;
 }
 
 #clear{
     position: absolute;
     left: 15%;
-    bottom: 20px;
+    bottom: 40px;
 }
 
 #restart{
     position: absolute;
     left: 5%;
-    bottom: 20px;
+    bottom: 40px;
 }
 
 .slider{
@@ -112,6 +112,7 @@ span.cellSelected{
 
 .slider:hover{
     opacity: 1;
+    cursor: pointer;
 }
 
 .slider:-webkit-slider-thumb {
@@ -138,6 +139,16 @@ span.cellSelected{
 
 .button:hover, .dropDown:hover{
     background-color: darkred;
+    cursor: pointer;
+}
+
+footer{
+    position: absolute;
+    bottom: 10px;
+    color: white;
+    margin: auto;
+    width: 100%;
+    text-align: center;
 }
 
 h2{
@@ -162,4 +173,12 @@ h1{
     position:absolute;
     font-size:5em;
     color: white;
+}
+
+a{
+    color:red;
+}
+
+a:active{
+    color: blue;
 }
