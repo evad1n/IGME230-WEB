@@ -1,7 +1,7 @@
 // We will use `strict mode`, which helps us by having the browser catch many common JS mistakes
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode
 "use strict";
-const app = new PIXI.Application(600,600);
+const app = new PIXI.Application(800,800);
 document.body.appendChild(app.view);
 
 // constants
@@ -89,31 +89,31 @@ function setup() {
 
 function createLabelsAndButtons(){
     let buttonStyle = new PIXI.TextStyle({
-        fill: 0xFF0000,
+        fill: 0xFFFFFF,
         fontSize: 48,
         fontFamily: 'Audiowide'
     });
     
     let startLabel1 = new PIXI.Text("BALLISTIC");
     startLabel1.style = new PIXI.TextStyle({
-        fill: 0xFFFFFF,
+        fill: 0xDD0000,
         fontSize: 96,
         fontFamily: 'Audiowide',
-        stroke: 0xFF0000,
-        strokeThickness: 6
+        stroke: 0xBBBBBB,
+        strokeThickness: 3
     });
     startLabel1.anchor.x = 0.5;
-    startLabel1.x = 50;
+    startLabel1.x = sceneWidth/2;
     startLabel1.y = 120;
     startScene.addChild(startLabel1);
     
     let startLabel2 = new PIXI.Text("By Will Dickinson and David Liu");
     startLabel2.style = new PIXI.TextStyle({
-        fill: 0xFFFFFF,
+        fill: 0xDD0000,
         fontSize: 32,
         fontFamily: 'Audiowide',
-        stroke: 0xFF0000,
-        strokeThickness: 6,
+        stroke: 0xBBBBBB,
+        strokeThickness: 1,
         anchor: 0.5
     });
     startLabel2.anchor.x = 0.5;
@@ -124,12 +124,12 @@ function createLabelsAndButtons(){
     let startButton = new PIXI.Text("PLAY");
     startButton.style = buttonStyle;
     startButton.anchor.x = 0.5;
-    startButton.x = 80;
+    startButton.x = sceneWidth/2;
     startButton.y = sceneHeight - 100;
     startButton.interactive = true;
     startButton.buttonMode = true;
     startButton.on("pointerup", startGame);
-    startButton.on("pointerover", e=>e.target.alpha = 0.7);
+    startButton.on("pointerover", e=>e.target.alpha = 0.7, e=>e.target.style.backgroundColor = 0xDD0000);
     startButton.on("pointerout", e=>e.currentTarget.alpha = 1);
     startScene.addChild(startButton);
     
@@ -145,28 +145,32 @@ function createLabelsAndButtons(){
     
     scoreLabel1 = new PIXI.Text();
     scoreLabel1.style = textStyle;
-    scoreLabel1.x = 5;
-    scoreLabel1.y = 5;
+    scoreLabel1.anchor.x = 0.5;
+    scoreLabel1.x = 50;
+    scoreLabel1.y = 26;
     gameScene.addChild(scoreLabel1);
     increaseScoreBy(0, 1);
     
-    playerLabel1 = new PIXI.Text();
+    playerLabel1 = new PIXI.Text("Player 1");
     playerLabel1.style = textStyle;
-    playerLabel1.x = 5;
-    playerLabel1.y = 26;
+    playerLabel1.anchor.x = 0.5;
+    playerLabel1.x = 50;
+    playerLabel1.y = 6;
     gameScene.addChild(playerLabel1);
     
     scoreLabel2 = new PIXI.Text();
     scoreLabel2.style = textStyle;
-    scoreLabel2.x = sceneWidth - 26;
-    scoreLabel2.y = 5;
+    scoreLabel2.anchor.x = 0.5;
+    scoreLabel2.x = sceneWidth - 50;
+    scoreLabel2.y = 26;
     gameScene.addChild(scoreLabel2);
     increaseScoreBy(0, 2);
     
-    playerLabel2 = new PIXI.Text();
+    playerLabel2 = new PIXI.Text("Player 2");
     playerLabel2.style = textStyle;
-    playerLabel2.x = sceneWidth - 26;
-    playerLabel2.y = 26;
+    playerLabel2.anchor.x = 0.5;
+    playerLabel2.x = sceneWidth - 50;
+    playerLabel2.y = 5;
     gameScene.addChild(playerLabel2);
     
     // 3 - set up `gameOverScene`
