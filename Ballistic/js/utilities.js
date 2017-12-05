@@ -18,10 +18,38 @@ function clamp(val, min, max){
 
 // bounding box collision detection - it compares PIXI.Rectangles
 function rectsIntersect(a,b){
-    var ab = a.getBounds();
-    var bb = b.getBounds();
+    let ab = a.getBounds();
+    let bb = b.getBounds();
     return ab.x + ab.width > bb.x && ab.x < bb.x + bb.width && ab.y + ab.height > bb.y && ab.y < bb.y + bb.height;
 }
+
+function circleCollision(a,b){
+    let circle1 = {radius: a.radius, x: a.x, y: a.y};
+    let circle2 = {radius: b.radius, x: b.x, y: b.y};
+
+    let dx = circle1.x - circle2.x;
+    let dy = circle1.y - circle2.y;
+    let distance = Math.sqrt(dx * dx + dy * dy);
+
+    return distance < (circle1.radius + circle2.radius);
+}
+
+function rectCollisionSide(){
+//    let wy = (A.width() + B.width()) * (A.centerY() - B.centerY());
+//    let hx = (A.height() + B.height()) * (A.centerX() - B.centerX());
+//
+//    if (wy > hx)
+//        if (wy > -hx)
+//            /* top */
+//        else
+//            /* left */
+//    else
+//        if (wy > -hx)
+//            /* right */
+//        else
+//            /* bottom */
+}
+
 
 // these 2 helpers are used by classes.js
 function getRandomUnitVector(){
