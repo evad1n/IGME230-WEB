@@ -23,6 +23,7 @@ let keyPressed = [];
 let tank1FireTimer = 0;
 let tank2FireTimer = 0;
 
+let walls = [];
 let bullets = [];
 let explosions = [];
 let explosionTextures;
@@ -34,6 +35,7 @@ let rotateSpeed = Math.PI/72;
 let speed = 3;
 let fireInterval = 0.3;
 let endDelay = 0;
+let wallNum = 50;
 
 function setup() {
 	stage = app.stage;
@@ -229,10 +231,20 @@ function startGame(){
     tank2.rotation -= Math.PI/2;
     gameScene.addChild(tank2);
     
-    tank1.x = 400;
-    tank1.y = 550;
-    tank2.x = 200;
-    tank2.y = 550;
+    // Create walls
+    if(walls.length != (wallNum * 2)){
+        for(let i = 0; i < wallNum; i++){
+            drawHorizontalWall();
+        }
+        for(let i = 0; i < wallNum; i++){
+            drawVerticalWall();
+        }   
+    }
+    
+    tank1.x = 0;
+    tank1.y = 800;
+    tank2.x = 800;
+    tank2.y = 800;
 }
 
 function increaseScoreBy(value, player){
@@ -252,6 +264,38 @@ function increaseScoreBy(value, player){
 
         scoreLabel2.text = `Score ${score2}`;
     }
+}
+
+function drawHorizontalWall(){
+    const rect = new PIXI.Graphics();
+    let xTiles = Math.floor(sceneWidth / 50);
+    let yTiles = Math.floor(sceneHeight / 50);
+    rect.beginFill(0xCCCCCC);
+    rect.lineStyle(2,0xCCCCCC,1);
+    rect.drawRect(0,0,5,50);
+    
+    rect.x = (Math.floor((Math.random() * xTiles) + 1) * 50);
+    rect.y = (Math.floor((Math.random() * yTiles) + 1) * 50);  
+
+    rect.endFill();
+    walls.push(rect);
+    gameScene.addChild(rect);
+}
+
+function drawVerticalWall(){
+    const rect = new PIXI.Graphics();
+    let xTiles = Math.floor(sceneWidth / 50);
+    let yTiles = Math.floor(sceneHeight / 50);
+    rect.beginFill(0xCCCCCC);
+    rect.lineStyle(2,0xCCCCCC,1);
+    rect.drawRect(0,0,50,5);
+    
+    rect.x = (Math.floor((Math.random() * xTiles) + 1) * 50);
+    rect.y = (Math.floor((Math.random() * yTiles) + 1) * 50);  
+    
+    rect.endFill(); 
+    walls.push(rect);
+    gameScene.addChild(rect);
 }
 
 function gameLoop(){
